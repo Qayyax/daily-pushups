@@ -1,11 +1,12 @@
+import LogSetHeader from "@/components/log-a-set-modal/logSetHeader";
 import LogSetBtn from "@/components/LogSetBtn";
 import QuotesCard from "@/components/QuotesCard";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
-    <View
-      style={{
+    <ScrollView
+      contentContainerStyle={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
@@ -19,7 +20,8 @@ export default function Index() {
         source="Carlos Ruiz Zafon"
         quote="We are willing to believe anything other than the truth."
       />
-    </View>
+      <LogSetHeader onPress={() => alert("clicked")} />
+    </ScrollView>
   );
 }
 
