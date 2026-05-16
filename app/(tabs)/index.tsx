@@ -1,6 +1,6 @@
 import LogSetBtn from "@/components/LogSetBtn";
 import QuotesCard from "@/components/QuotesCard";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function Index() {
   return (
@@ -9,6 +9,8 @@ export default function Index() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        gap: 20,
+        paddingHorizontal: 16,
       }}
     >
       <Text>Testing that this is a page</Text>
@@ -17,3 +19,9 @@ export default function Index() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    gap: 10,
+  },
+});

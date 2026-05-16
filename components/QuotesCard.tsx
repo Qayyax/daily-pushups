@@ -1,11 +1,6 @@
-// TODO:
-// [x] Rounded rectangle
-// [] hstack with 2 components
-//  [] quotes icon
-//  [] Vstack text - primary and secondary
-
 import { StyleSheet, Text, View } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { colors } from "@/constants/color";
 
 type Props = {
   quote: string;
@@ -16,11 +11,11 @@ export default function QuotesCard({ quote, source }: Props) {
   return (
     <View style={styles.container}>
       {/* icon here */}
-      <View className="p-4 bg-purple-200 rounded-lg mb-20">
-        <FontAwesome name="quote-left" size={24} color="purple" />
+      <View style={styles.quoteIcon}>
+        <FontAwesome name="quote-left" size={24} color={colors.primary} />
       </View>
       <View>
-        <Text className="font-bold">{quote}</Text>
+        <Text style={styles.primaryText}>{quote}</Text>
         <Text>{source}</Text>
       </View>
     </View>
@@ -30,9 +25,22 @@ export default function QuotesCard({ quote, source }: Props) {
 const styles = StyleSheet.create({
   container: {
     borderRadius: 16,
-    padding: 10,
+    padding: 20,
     width: "100%",
     flexDirection: "row",
-    gap: 10,
+    gap: 16,
+    backgroundColor: colors.lightContainerBg,
+    borderWidth: 2,
+  },
+  quoteIcon: {
+    padding: 4,
+    backgroundColor: colors.midPurple,
+    borderRadius: 8,
+  },
+  textContainer: {
+    gap: 5,
+  },
+  primaryText: {
+    fontWeight: "bold",
   },
 });
