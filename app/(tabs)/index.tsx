@@ -1,3 +1,4 @@
+import IncreaseDecreaseBtn from "@/components/log-a-set-modal/IncreaseDecreaseBtn";
 import LogSetHeader from "@/components/log-a-set-modal/logSetHeader";
 import LogSetBtn from "@/components/LogSetBtn";
 import QuotesCard from "@/components/QuotesCard";
@@ -20,7 +21,19 @@ export default function Index() {
         source="Carlos Ruiz Zafon"
         quote="We are willing to believe anything other than the truth."
       />
-      <LogSetHeader onPress={() => alert("clicked")} />
+      <View>
+        <LogSetHeader onPress={() => alert("clicked")} />
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: 10,
+          }}
+        >
+          <IncreaseDecreaseBtn type="minus" onPress={() => alert("decrease")} />
+          <IncreaseDecreaseBtn type="plus" onPress={() => alert("increase")} />
+        </View>
+      </View>
     </ScrollView>
   );
 }
