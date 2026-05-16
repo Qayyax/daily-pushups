@@ -1,3 +1,4 @@
+import RoudedRectangle from "@/components/RoundedRectangle";
 import { Text, View } from "react-native";
 
 export default function Index() {
@@ -10,6 +11,11 @@ export default function Index() {
       }}
     >
       <Text>Testing that this is a page</Text>
+      <RoudedRectangle
+        color={"purple"}
+        type="set"
+        onPress={() => alert("clicked")}
+      />
     </View>
   );
 }
