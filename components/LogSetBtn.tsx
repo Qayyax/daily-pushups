@@ -3,7 +3,7 @@
 // make it a logit button  instead
 
 import Entypo from "@expo/vector-icons/Entypo";
-import { ColorValue, Pressable, StyleSheet, Text, View } from "react-native";
+import { ColorValue, Pressable, StyleSheet, Text } from "react-native";
 
 type Props = {
   color: ColorValue;
@@ -11,7 +11,7 @@ type Props = {
   onPress: () => void;
 };
 
-export default function RoudedRectangle({ color, type, onPress }: Props) {
+export default function LogSetBtn({ color, type, onPress }: Props) {
   return (
     <Pressable
       style={[styles.container, { backgroundColor: color }]}
