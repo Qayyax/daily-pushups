@@ -16,11 +16,11 @@ export default function QuotesCard({ quote, source }: Props) {
   return (
     <View style={styles.container}>
       {/* icon here */}
-      <View className="p-2 bg-purple-200 rounded-lg">
+      <View className="p-4 bg-purple-200 rounded-lg mb-20">
         <FontAwesome name="quote-left" size={24} color="purple" />
       </View>
       <View>
-        <Text>{quote}</Text>
+        <Text className="font-bold">{quote}</Text>
         <Text>{source}</Text>
       </View>
     </View>

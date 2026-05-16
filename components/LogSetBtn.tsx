@@ -1,7 +1,3 @@
-// TODO:
-// would remove the tailwind css later
-// make it a logit button  instead
-
 import Entypo from "@expo/vector-icons/Entypo";
 import { ColorValue, Pressable, StyleSheet, Text } from "react-native";
 
@@ -17,7 +13,6 @@ export default function LogSetBtn({ color, type, onPress }: Props) {
       style={[styles.container, { backgroundColor: color }]}
       onPress={onPress}
     >
-      {/* icon here if type is set*/}
       {type === "set" && <Entypo name="plus" size={30} color="white" />}
       <Text style={styles.content}>
         {type === "set" ? "Log a set" : "Log it"}
