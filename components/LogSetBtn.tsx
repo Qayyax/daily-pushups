@@ -1,16 +1,27 @@
+import { colors } from "@/constants/color";
 import Entypo from "@expo/vector-icons/Entypo";
-import { ColorValue, Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 
 type Props = {
-  color: ColorValue;
   type: "set" | "primary";
   onPress: () => void;
 };
-
-export default function LogSetBtn({ color, type, onPress }: Props) {
+// <Pressable
+//    style={({ pressed }) => [
+//      styles.container,
+//      { backgroundColor: pressed ? colors.primary : colors.midPurple },
+//    ]}
+//    onPress={onPress}
+//  >
+export default function LogSetBtn({ type, onPress }: Props) {
   return (
     <Pressable
-      style={[styles.container, { backgroundColor: color }]}
+      style={({ pressed }) => [
+        styles.container,
+        {
+          backgroundColor: pressed ? colors.midPurple : colors.primary,
+        },
+      ]}
       onPress={onPress}
     >
       {type === "set" && <Entypo name="plus" size={30} color="white" />}

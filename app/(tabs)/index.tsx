@@ -14,7 +14,7 @@ export default function Index() {
       }}
     >
       <Text>Testing that this is a page</Text>
-      <LogSetBtn color={"purple"} type="set" onPress={() => alert("clicked")} />
+      <LogSetBtn type="set" onPress={() => alert("clicked")} />
       <QuotesCard source="Daily Mantra" quote="Discipline equals freedom" />
     </View>
   );
