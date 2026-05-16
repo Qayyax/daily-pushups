@@ -15,7 +15,10 @@ export default function Index() {
     >
       <Text>Testing that this is a page</Text>
       <LogSetBtn type="set" onPress={() => alert("clicked")} />
-      <QuotesCard source="Daily Mantra" quote="Discipline equals freedom" />
+      <QuotesCard
+        source="Carlos Ruiz Zafon"
+        quote="We are willing to believe anything other than the truth."
+      />
     </View>
   );
 }

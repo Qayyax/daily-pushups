@@ -14,7 +14,7 @@ export default function QuotesCard({ quote, source }: Props) {
       <View style={styles.quoteIcon}>
         <FontAwesome name="quote-left" size={24} color={colors.primary} />
       </View>
-      <View>
+      <View style={styles.textContainer}>
         <Text style={styles.primaryText}>{quote}</Text>
         <Text>{source}</Text>
       </View>
@@ -33,11 +33,16 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   quoteIcon: {
-    padding: 4,
+    height: 36,
+    width: 36,
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: colors.midPurple,
     borderRadius: 8,
   },
   textContainer: {
+    flex: 1,
+    flexShrink: 1,
     gap: 5,
   },
   primaryText: {
