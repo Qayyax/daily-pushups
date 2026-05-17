@@ -21,6 +21,10 @@ export default function Index() {
         source="Carlos Ruiz Zafon"
         quote="We are willing to believe anything other than the truth."
       />
+      <QuotesCard
+        source="ashaunte is the best"
+        quote="You haven't met all the people that are going to love you"
+      />
       <View>
         <LogSetHeader onPress={() => alert("clicked")} />
         <View

@@ -10,7 +10,6 @@ type Props = {
 export default function QuotesCard({ quote, source }: Props) {
   return (
     <View style={styles.container}>
-      {/* icon here */}
       <View style={styles.quoteIcon}>
         <FontAwesome name="quote-left" size={24} color={colors.primary} />
       </View>
