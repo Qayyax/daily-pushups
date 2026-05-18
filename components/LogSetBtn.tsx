@@ -6,13 +6,7 @@ type Props = {
   type: "set" | "primary";
   onPress: () => void;
 };
-// <Pressable
-//    style={({ pressed }) => [
-//      styles.container,
-//      { backgroundColor: pressed ? colors.primary : colors.midPurple },
-//    ]}
-//    onPress={onPress}
-//  >
+
 export default function LogSetBtn({ type, onPress }: Props) {
   return (
     <Pressable
@@ -35,7 +29,8 @@ export default function LogSetBtn({ type, onPress }: Props) {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    width: "100%",
+    flex: 1,
+    maxHeight: 50,
     alignItems: "center",
     borderRadius: 16,
     flexDirection: "row",
