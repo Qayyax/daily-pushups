@@ -1,5 +1,6 @@
 import IncreaseDecreaseBtn from "@/components/log-a-set-modal/IncreaseDecreaseBtn";
 import LogSetHeader from "@/components/log-a-set-modal/logSetHeader";
+import RepsInput from "@/components/log-a-set-modal/RepsInput";
 import LogSetBtn from "@/components/LogSetBtn";
 import QuotesCard from "@/components/QuotesCard";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
@@ -27,6 +28,8 @@ export default function Index() {
       />
       <View>
         <LogSetHeader onPress={() => alert("clicked")} />
+
+        <RepsInput />
         <View
           style={{
             flexDirection: "row",
