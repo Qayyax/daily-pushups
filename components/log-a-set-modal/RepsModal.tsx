@@ -20,25 +20,22 @@ export default function RepsModal() {
           <IncreaseDecreaseBtn type="plus" onPress={() => alert("increase")} />
         </View>
 
-        {/* <View style={{ borderWidth: 2 }}> */}
-        {/*   <FlatList */}
-        {/*     data={quickReps} */}
-        {/*     horizontal */}
-        {/*     keyExtractor={(rep) => String(rep)} */}
-        {/*     renderItem={({ item }) => ( */}
-        {/*       <QuickRepNumBtn */}
-        {/*         number={item} */}
-        {/*         onPress={() => alert(`${item} reps`)} */}
-        {/*       /> */}
-        {/*     )} */}
-        {/*     contentContainerStyle={styles.quickRepsBtnContainer} */}
-        {/*   /> */}
-        {/* </View> */}
+        <FlatList
+          data={quickReps}
+          horizontal
+          keyExtractor={(rep) => String(rep)}
+          renderItem={({ item }) => (
+            <QuickRepNumBtn
+              number={item}
+              onPress={() => alert(`${item} reps`)}
+            />
+          )}
+          contentContainerStyle={styles.quickRepsBtnContainer}
+          style={{ borderWidth: 2, maxHeight: 50 }}
+        />
       </View>
 
-      <View style={{ borderWidth: 2 }}>
-        <LogSetBtn type="primary" onPress={() => alert("clicked")} />
-      </View>
+      <LogSetBtn type="primary" onPress={() => alert("clicked")} />
     </View>
   );
 }
@@ -48,6 +45,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     paddingVertical: 20,
+    borderWidth: 2,
   },
   repsContainer: {
     gap: 30,
@@ -58,8 +56,9 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   quickRepsBtnContainer: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "space-between",
     paddingHorizontal: 20,
+    alignItems: "center",
   },
 });
