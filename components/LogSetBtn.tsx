@@ -29,7 +29,7 @@ export default function LogSetBtn({ type, onPress }: Props) {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    flex: 1,
+    // flex: 1,
     maxHeight: 50,
     alignItems: "center",
     borderRadius: 16,
