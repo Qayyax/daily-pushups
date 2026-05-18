@@ -23,6 +23,7 @@ export default function RepsModal() {
         <FlatList
           data={quickReps}
           horizontal
+          scrollEnabled={false}
           keyExtractor={(rep) => String(rep)}
           renderItem={({ item }) => (
             <QuickRepNumBtn

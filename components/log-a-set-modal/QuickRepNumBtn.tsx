@@ -8,7 +8,15 @@ type Props = {
 
 export default function QuickRepNumBtn({ number, onPress }: Props) {
   return (
-    <Pressable style={styles.container} onPress={onPress}>
+    <Pressable
+      style={({ pressed }) => [
+        styles.container,
+        {
+          backgroundColor: pressed ? colors.lightContainerBg : colors.midPurple,
+        },
+      ]}
+      onPress={onPress}
+    >
       <Text>{number}</Text>
     </Pressable>
   );
@@ -20,7 +28,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderWidth: 2,
     borderRadius: 16,
-    backgroundColor: colors.midPurple,
     alignItems: "center",
     // flex: 1,
   },

@@ -8,7 +8,15 @@ type Props = {
 };
 export default function IncreaseDecreaseBtn({ onPress, type }: Props) {
   return (
-    <Pressable style={styles.container} onPress={onPress}>
+    <Pressable
+      style={({ pressed }) => [
+        styles.container,
+        {
+          backgroundColor: pressed ? colors.midPurple : colors.lightContainerBg,
+        },
+      ]}
+      onPress={onPress}
+    >
       <Entypo name={type} size={24} color="black" />
     </Pressable>
   );
@@ -17,7 +25,6 @@ export default function IncreaseDecreaseBtn({ onPress, type }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lightContainerBg,
     padding: 10,
     borderRadius: 16,
     borderWidth: 2,
