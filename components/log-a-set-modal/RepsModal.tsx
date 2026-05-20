@@ -5,12 +5,16 @@ import RepsInput from "./RepsInput";
 import LogSetBtn from "../LogSetBtn";
 import QuickRepNumBtn from "./QuickRepNumBtn";
 
-export default function RepsModal() {
+type Props = {
+  onPress: () => void;
+};
+
+export default function RepsModal({ onPress }: Props) {
   const quickReps = [10, 20, 50, 100];
 
   return (
     <View style={styles.container}>
-      <LogSetHeader onPress={() => alert("clicked")} />
+      <LogSetHeader onPress={onPress} />
 
       <View style={styles.repsContainer}>
         <RepsInput />
@@ -32,7 +36,6 @@ export default function RepsModal() {
             />
           )}
           contentContainerStyle={styles.quickRepsBtnContainer}
-          style={{ borderWidth: 2, maxHeight: 50 }}
         />
       </View>
 
@@ -46,7 +49,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     paddingVertical: 20,
-    borderWidth: 2,
   },
   repsContainer: {
     gap: 30,
