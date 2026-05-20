@@ -1,15 +1,17 @@
 import { colors } from "@/constants/color";
-import { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 
-export default function RepsInput() {
-  const [currentReps, setCurrentReps] = useState(0);
+type Props = {
+  currentReps: number;
+  onChangeReps: (reps: string) => void;
+};
+export default function RepsInput({ currentReps, onChangeReps }: Props) {
   return (
     <View style={styles.container}>
       <TextInput
         keyboardType="number-pad"
         value={String(currentReps)}
-        onChangeText={(reps) => setCurrentReps(Number(reps))}
+        onChangeText={onChangeReps}
         placeholder="25"
         style={styles.textBox}
       />

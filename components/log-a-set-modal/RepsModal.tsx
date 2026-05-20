@@ -4,24 +4,47 @@ import IncreaseDecreaseBtn from "./IncreaseDecreaseBtn";
 import RepsInput from "./RepsInput";
 import LogSetBtn from "../LogSetBtn";
 import QuickRepNumBtn from "./QuickRepNumBtn";
+import { useState } from "react";
 
 type Props = {
   onPress: () => void;
 };
 
 export default function RepsModal({ onPress }: Props) {
+  const [currentReps, setCurrentReps] = useState(0);
+
   const quickReps = [10, 20, 50, 100];
+
+  const onIncreaseReps = () => {
+    setCurrentReps((rep) => rep + 1);
+  };
+
+  const onDecreaseReps = () => {
+    setCurrentReps((rep) => (rep > 0 ? rep - 1 : rep));
+  };
+
+  const onQuickReps = (num: number) => {
+    setCurrentReps((rep) => {
+      if (rep > 0) {
+        return rep + num;
+      }
+      return num;
+    });
+  };
 
   return (
     <View style={styles.container}>
       <LogSetHeader onPress={onPress} />
 
       <View style={styles.repsContainer}>
-        <RepsInput />
+        <RepsInput
+          currentReps={currentReps}
+          onChangeReps={(rep) => setCurrentReps(Number(rep))}
+        />
 
         <View style={styles.addBtns}>
-          <IncreaseDecreaseBtn type="minus" onPress={() => alert("decrease")} />
-          <IncreaseDecreaseBtn type="plus" onPress={() => alert("increase")} />
+          <IncreaseDecreaseBtn type="minus" onPress={onDecreaseReps} />
+          <IncreaseDecreaseBtn type="plus" onPress={onIncreaseReps} />
         </View>
 
         <FlatList
@@ -30,10 +53,7 @@ export default function RepsModal({ onPress }: Props) {
           scrollEnabled={false}
           keyExtractor={(rep) => String(rep)}
           renderItem={({ item }) => (
-            <QuickRepNumBtn
-              number={item}
-              onPress={() => alert(`${item} reps`)}
-            />
+            <QuickRepNumBtn number={item} onPress={() => onQuickReps(item)} />
           )}
           contentContainerStyle={styles.quickRepsBtnContainer}
         />
