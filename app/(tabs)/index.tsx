@@ -9,39 +9,48 @@ export default function Index() {
   const [showLog, setShowLog] = useState(false);
 
   return (
-    <ScrollView
-      contentContainerStyle={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 20,
-        paddingHorizontal: 16,
-      }}
-    >
-      <Text>Testing that this is a page</Text>
-      <QuotesCard
-        source="Carlos Ruiz Zafon"
-        quote="We are willing to believe anything other than the truth."
-      />
-      <QuotesCard
-        source="ashaunte is the best"
-        quote="You haven't met all the people that are going to love you"
-      />
-
-      <View style={{ width: "100%" }}>
-        <LogSetBtn type="set" onPress={() => setShowLog(true)} />
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.topContainer}>
+        <Text>Testing that this is a page</Text>
       </View>
-      <Modal visible={showLog} animationType="slide">
-        <SafeAreaView style={{ flex: 1, padding: 16 }}>
-          <RepsModal onPress={() => setShowLog(false)} />
-        </SafeAreaView>
-      </Modal>
+
+      <View style={styles.bottomContainer}>
+        <QuotesCard
+          source="Carlos Ruiz Zafon"
+          quote="We are willing to believe anything other than the truth."
+        />
+
+        <LogSetBtn type="set" onPress={() => setShowLog(true)} />
+
+        {/* When the logSetBtn is pressed */}
+        <Modal visible={showLog} animationType="slide">
+          <SafeAreaView style={{ flex: 1, padding: 16 }}>
+            <RepsModal onPress={() => setShowLog(false)} />
+          </SafeAreaView>
+        </Modal>
+      </View>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16,
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 20,
+    padding: 16,
+  },
+  topContainer: {
+    flex: 2,
+    borderWidth: 2,
+    borderRadius: 16,
+  },
+  bottomContainer: {
+    flex: 1 / 3,
+    borderWidth: 2,
+    borderRadius: 16,
+    gap: 16,
+    justifyContent: "flex-end",
   },
 });
