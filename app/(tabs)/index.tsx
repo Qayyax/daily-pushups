@@ -29,6 +29,7 @@ export default function Index() {
         <Modal visible={showLog} animationType="slide">
           <SafeAreaView style={{ flex: 1, padding: 16 }}>
             <RepsModal
+              currentReps={currentReps}
               closeModalBtn={() => setShowLog(false)}
               onPress={(rep) => {
                 setCurrentRep(rep);

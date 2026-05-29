@@ -9,10 +9,11 @@ import { useState } from "react";
 type Props = {
   closeModalBtn: () => void;
   onPress: (rep: number) => void;
+  currentReps: number;
 };
 
-export default function RepsModal({ onPress, closeModalBtn }: Props) {
-  const [currentReps, setCurrentReps] = useState(0);
+export default function RepsModal({ onPress, closeModalBtn, currentReps: initialReps }: Props) {
+  const [currentReps, setCurrentReps] = useState(initialReps);
 
   const quickReps = [10, 20, 50, 100];
 
