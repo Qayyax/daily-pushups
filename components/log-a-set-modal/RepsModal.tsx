@@ -7,10 +7,11 @@ import QuickRepNumBtn from "./QuickRepNumBtn";
 import { useState } from "react";
 
 type Props = {
-  onPress: () => void;
+  closeModalBtn: () => void;
+  onPress: (rep: number) => void;
 };
 
-export default function RepsModal({ onPress }: Props) {
+export default function RepsModal({ onPress, closeModalBtn }: Props) {
   const [currentReps, setCurrentReps] = useState(0);
 
   const quickReps = [10, 20, 50, 100];
@@ -34,7 +35,7 @@ export default function RepsModal({ onPress }: Props) {
 
   return (
     <View style={styles.container}>
-      <LogSetHeader onPress={onPress} />
+      <LogSetHeader onPress={closeModalBtn} />
 
       <View style={styles.repsContainer}>
         <RepsInput
@@ -59,7 +60,7 @@ export default function RepsModal({ onPress }: Props) {
         />
       </View>
 
-      <LogSetBtn type="primary" onPress={() => alert("clicked")} />
+      <LogSetBtn type="primary" onPress={() => onPress(currentReps)} />
     </View>
   );
 }

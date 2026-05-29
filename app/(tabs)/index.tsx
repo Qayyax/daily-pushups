@@ -1,17 +1,20 @@
 import RepsModal from "@/components/log-a-set-modal/RepsModal";
 import LogSetBtn from "@/components/LogSetBtn";
 import QuotesCard from "@/components/QuotesCard";
+import RepsProgressBar from "@/components/RepsProgressBar";
 import { useState } from "react";
 import { Modal, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   const [showLog, setShowLog] = useState(false);
+  const [currentReps, setCurrentRep] = useState(0);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.topContainer}>
         <Text>Testing that this is a page</Text>
+        <RepsProgressBar currentRep={currentReps} totalRep={0} />
       </View>
 
       <View style={styles.bottomContainer}>
@@ -25,7 +28,13 @@ export default function Index() {
         {/* When the logSetBtn is pressed */}
         <Modal visible={showLog} animationType="slide">
           <SafeAreaView style={{ flex: 1, padding: 16 }}>
-            <RepsModal onPress={() => setShowLog(false)} />
+            <RepsModal
+              closeModalBtn={() => setShowLog(false)}
+              onPress={(rep) => {
+                setCurrentRep(rep);
+                setShowLog(false);
+              }}
+            />
           </SafeAreaView>
         </Modal>
       </View>
@@ -45,6 +54,8 @@ const styles = StyleSheet.create({
     flex: 2,
     borderWidth: 2,
     borderRadius: 16,
+    width: "100%",
+    alignItems: "center",
   },
   bottomContainer: {
     flex: 1 / 3,
