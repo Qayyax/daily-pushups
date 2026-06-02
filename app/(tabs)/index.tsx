@@ -14,7 +14,7 @@ export default function Index() {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.topContainer}>
         <Text>Testing that this is a page</Text>
-        <RepsProgressBar currentRep={currentReps} totalRep={0} />
+        <RepsProgressBar currentRep={currentReps} totalRep={100} />
       </View>
 
       <View style={styles.bottomContainer}>

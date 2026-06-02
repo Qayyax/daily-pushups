@@ -15,32 +15,25 @@ type Props = {
 
 export default function RepsProgressBar({ currentRep, totalRep }: Props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.main}>
-        <Text style={styles.currentRep}>{String(currentRep)}</Text>
-        <Text>of {String(totalRep)} reps</Text>
-      </View>
-      <AnimatedCircularProgress
-        size={120}
-        width={10}
-        fill={50}
-        tintColor={colors.primary}
-        rotation={360}
-        backgroundColor={colors.midPurple}
-      />
-    </View>
+    <AnimatedCircularProgress
+      size={250}
+      width={20}
+      fill={(currentRep / totalRep) * 100}
+      tintColor={colors.primary}
+      rotation={360}
+      backgroundColor={colors.midPurple}
+      lineCap="round"
+      children={() => (
+        <View style={styles.main}>
+          <Text style={styles.currentRep}>{String(currentRep)}</Text>
+          <Text>of {String(totalRep)} reps</Text>
+        </View>
+      )}
+    />
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 25,
-    alignItems: "center",
-    borderWidth: 20,
-    borderRadius: "100%",
-    maxWidth: 350,
-    minWidth: 280,
-  },
   main: {
     alignItems: "center",
     justifyContent: "center",
