@@ -7,9 +7,10 @@ import { Modal, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 // TODO:
-// - [] Hey, [USER] at the top before the progress bar
-// - [] color of the safe area
-// - [] robot fonts
+// - [] data in local file and data types
+// - [] reps
+// - [] total reps goal for the day button (maybe in settings)
+// - [] log a set logs a set, total sets should be with a function from data
 
 export default function Index() {
   const [showLog, setShowLog] = useState(false);
@@ -62,13 +63,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   bottomContainer: {
-    flex: 1 / 3,
+    flex: 1,
     gap: 16,
     justifyContent: "flex-end",
+    paddingBottom: 20,
   },
   userText: {
-    alignContent: "flex-start",
+    alignSelf: "flex-start",
     fontSize: 28,
     fontWeight: 700,
+    paddingBottom: 40,
   },
 });
