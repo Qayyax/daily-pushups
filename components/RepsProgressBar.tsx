@@ -1,4 +1,6 @@
+import { colors } from "@/constants/color";
 import { StyleSheet, Text, View } from "react-native";
+import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 /*
  * We need a rounded circle,
@@ -18,6 +20,14 @@ export default function RepsProgressBar({ currentRep, totalRep }: Props) {
         <Text style={styles.currentRep}>{String(currentRep)}</Text>
         <Text>of {String(totalRep)} reps</Text>
       </View>
+      <AnimatedCircularProgress
+        size={120}
+        width={10}
+        fill={50}
+        tintColor={colors.primary}
+        rotation={360}
+        backgroundColor={colors.midPurple}
+      />
     </View>
   );
 }
