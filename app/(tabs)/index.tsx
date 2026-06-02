@@ -6,6 +6,11 @@ import { useState } from "react";
 import { Modal, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+// TODO:
+// - [] Hey, [USER] at the top before the progress bar
+// - [] color of the safe area
+// - [] robot fonts
+
 export default function Index() {
   const [showLog, setShowLog] = useState(false);
   const [currentReps, setCurrentRep] = useState(0);
@@ -13,7 +18,7 @@ export default function Index() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.topContainer}>
-        <Text>Testing that this is a page</Text>
+        <Text style={styles.userText}>Hey User</Text>
         <RepsProgressBar currentRep={currentReps} totalRep={100} />
       </View>
 
@@ -25,7 +30,7 @@ export default function Index() {
 
         <LogSetBtn type="set" onPress={() => setShowLog(true)} />
 
-        {/* When the logSetBtn is pressed */}
+        {/* shows up When the logSetBtn is pressed */}
         <Modal visible={showLog} animationType="slide">
           <SafeAreaView style={{ flex: 1, padding: 16 }}>
             <RepsModal
@@ -53,16 +58,17 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     flex: 2,
-    borderWidth: 2,
-    borderRadius: 16,
     width: "100%",
     alignItems: "center",
   },
   bottomContainer: {
     flex: 1 / 3,
-    borderWidth: 2,
-    borderRadius: 16,
     gap: 16,
     justifyContent: "flex-end",
+  },
+  userText: {
+    alignContent: "flex-start",
+    fontSize: 28,
+    fontWeight: 700,
   },
 });

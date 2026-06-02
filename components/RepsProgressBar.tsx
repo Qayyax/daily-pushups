@@ -2,12 +2,6 @@ import { colors } from "@/constants/color";
 import { StyleSheet, Text, View } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
-/*
- * We need a rounded circle,
- * with a progress color  that increases as the number increases
- * would use a state for that one,
- * The progress would be based on how many reps / goal reps
- */
 type Props = {
   currentRep: number;
   totalRep: number;
@@ -16,7 +10,7 @@ type Props = {
 export default function RepsProgressBar({ currentRep, totalRep }: Props) {
   return (
     <AnimatedCircularProgress
-      size={250}
+      size={300}
       width={20}
       fill={(currentRep / totalRep) * 100}
       tintColor={colors.primary}
