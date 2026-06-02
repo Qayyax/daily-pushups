@@ -1,11 +1,11 @@
 export type User = {
   id: number;
-  userName: string;
+  user_name: string;
 };
 
 export type Rep = {
   id: number;
-  userId: number;
+  user_id: number;
   reps: number;
-  createdAt: string;
+  created_at: string;
 };
